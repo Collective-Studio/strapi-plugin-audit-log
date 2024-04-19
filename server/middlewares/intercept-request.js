@@ -55,10 +55,17 @@ module.exports = ({ strapi }) => {
         );
       }
 
+      const requestHeader = ctx.request.header
+      let ip = ctx.ip
+      if (requestHeader["cf-connecting-ip"]) {
+        ip = requestHeader["cf-connecting-ip"]
+      } else if (requestHeader["x-forwarded-for"]) {
+        ip = requestHeader["x-forwarded-for"].split(",")[0]
+      }
       const data = {
         user: ctx.state.user !== undefined ? ctx.state.user.email : "Anonymous",
         url: ctx.url,
-        ip_address: ctx.ip,
+        ip_address: ip,
         http_method: ctx.method,
         http_status: ctx.status,
         request_body: request,

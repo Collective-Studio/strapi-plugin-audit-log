@@ -52,10 +52,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Marje3PSUT/audit-log-plugin.git"
+    "url": "https://github.com/Collective-Studio/strapi-plugin-audit-log.git"
   },
   "engines": {
-    "node": ">=14.19.1 <=18.x.x",
+    "node": ">=18.x.x <=20.x.x",
     "npm": ">=7.x.x"
   },
   "keywords": [
